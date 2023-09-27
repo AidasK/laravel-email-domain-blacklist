@@ -80,6 +80,9 @@ class Validator
      **/
     public function validate($attribute, $value, $parameters)
     {
+        if (!is_string($value)) {
+            return false;
+        }
         $this->refresh();
 
         $domain = Str::after(strtolower($value), '@');
